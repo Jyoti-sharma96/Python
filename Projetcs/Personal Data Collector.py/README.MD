@@ -23,7 +23,7 @@ The program asks users to enter their personal details and then displays the col
 
 The application welcomes the user and asks for personal information.
 
-![Program Start](screenshots/program_start.png)
+![Program Start](Screenshots/program_start.png)
 
 ---
 
@@ -31,7 +31,7 @@ The application welcomes the user and asks for personal information.
 
 The user enters personal details such as name, age, height, weight, favourite number, and hobby.
 
-![User Data Entry](screenshots/user_data_entry.png)
+![User Data Entry](Screenshots/user_data_entry.png)
 
 ---
 
@@ -43,7 +43,7 @@ The program displays:
 - Memory addresses
 - Approximate birth year
 
-![Final Output](screenshots/output.png)
+![Final Output](Screenshots/output.png)
 
 ---
 
