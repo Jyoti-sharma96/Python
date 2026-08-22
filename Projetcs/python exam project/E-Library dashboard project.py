@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# ==========================================
-# E-LIBRARY DASHBOARD (Beginner Friendly)
-# ==========================================
+
+# E-LIBRARY DASHBOARD 
+# ===================
 
 class LibraryDashboard:
     
@@ -16,11 +16,11 @@ class LibraryDashboard:
     def load_data(self):
         """Loads the original CSV and cleans/transforms it inside the code."""
         try:
-            # 1. Load the original file
+            
             self.df = pd.read_csv(self.file_path)
             print(">>> Original CSV file loaded successfully!\n")
             
-            # 2. Checking  for missing values (Control Structure)
+            # 2. Checking  for missing values 
             if self.df.isnull().sum().sum() > 0:
                 print(">>> Notice: Missing data found. Cleaning up empty rows...")
                 self.df = self.df.dropna()
@@ -28,7 +28,7 @@ class LibraryDashboard:
                 print(">>> Data is clean. No missing values found.\n")
                 
             # 3. Data Transformation 
-            # Calculating borrowing duration in days from borrow_date and return_date
+            
             self.df['Borrowing Duration (Days)'] = (
                 pd.to_datetime(self.df['return_date']) - pd.to_datetime(self.df['borrow_date'])
             ).dt.days
