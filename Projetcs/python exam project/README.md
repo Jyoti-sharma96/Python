@@ -1,256 +1,105 @@
-# 📚 E-Library Dashboard
+# Bookstore Inventory and Analytics System
 
-A beginner-friendly **Python E-Library Dashboard** that loads library transaction data from CSV, cleans and transforms it, calculates key statistics, filters transactions by book category, and generates visualizations.
-
-## 📌 Project Overview
-
-This project uses **Pandas, NumPy, Matplotlib, and Seaborn** to analyze library borrowing transactions.
-
-The dashboard performs the following tasks:
-
-- Loads the original `library_transactions.csv` file
-- Checks and removes missing records
-- Calculates borrowing duration in days
-- Extracts month and day-of-week information
-- Generates a library summary report
-- Calculates statistical measures
-- Filters transactions by book category
-- Creates four visualizations:
-  - Bar chart
-  - Monthly line graph
-  - Genre distribution pie chart
-  - Day-of-week vs genre heatmap
-
-The implementation is organized around a `LibraryDashboard` class. fileciteturn0file0L6-L16
+A robust Python-based application built with **Pandas** and **NumPy** for managing bookstore inventory, tracking sales transactions, and generating comprehensive business intelligence reports and visualizations.
 
 ---
 
-## 🛠️ Technologies Used
+## 📌 Features
 
-| Technology | Purpose |
-|---|---|
-| Python | Main programming language |
-| Pandas | Data loading, cleaning, transformation and analysis |
-| NumPy | Statistical calculations |
-| Matplotlib | Graph generation |
-| Seaborn | Enhanced visualizations |
-| CSV | Source transaction dataset |
-
-The project imports Pandas, NumPy, Matplotlib and Seaborn at the beginning of the program. fileciteturn0file0L1-L4
+- **Inventory Management**: Add new books, update stock quantities, and track book details (Title, Author, Genre, Price, Quantity).
+- **Sales Tracking**: Record sales transactions with automatic inventory deduction and revenue calculation.
+- **Data Analytics**: Compute key business metrics using NumPy (total revenue, average book price, monthly revenue growth rates).
+- **Aggregations & Insights**: Analyze top-performing books, revenue breakdown by genre, and author performance.
+- **Data Visualization**: Generate professional charts using Seaborn and Matplotlib (e.g., Sales by Genre).
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```text
-E-Library-Dashboard/
-│
-├── E-Library dashboard project.py
-├── library_transactions.csv
-├── README.md
-│
-└──screenshots/Console_output.png
-└── Charts/
-    ├── top_books_chart.png
-    ├── monthly_trends_chart.png
-    ├── genre_distribution_chart.png
-    └── activity_heatmap.png
+├── inventory.csv       # Bookstore inventory dataset
+├── sales.csv           # Sales transactions dataset
+├── main.ipynb          # Jupyter Notebook containing the implementation
+└── README.md           # Project documentation
 ```
 
 ---
 
-## 🔄 Data Processing
+## 📊 Dataset Schemas
 
-The dashboard reads the CSV using Pandas and checks whether missing values are present. If missing values are found, empty rows are removed. fileciteturn0file0L16-L29
+### 1. `inventory.csv`
+| Column | Data Type | Description |
+| :--- | :--- | :--- |
+| `Title` | String | The title of the book |
+| `Author` | String | The author of the book |
+| `Genre` | String | Literary genre (Fiction, Dystopian, Sci-Fi, etc.) |
+| `Price` | Float | Unit price in USD ($) |
+| `Quantity` | Integer | Current available stock in inventory |
 
-It then transforms the transaction data by calculating:
-
-**Borrowing Duration = Return Date − Borrow Date**
-
-It also creates `Month` and `DayOfWeek` fields for further analysis. fileciteturn0file0L30-L40
-
----
-
-## 📊 Dataset Summary
-
-The supplied dataset contains:
-
-- **1,000 transactions**
-- **1,000 unique books**
-- **1,000 unique users**
-- Most borrowed book ID: **B1**
-- Average borrowing duration: **10.22 days**
-- Standard deviation of borrowing duration: **5.75 days**
-
-The program's summary and statistical functions calculate transaction count, unique books/users, most-borrowed book, average duration, and standard deviation. fileciteturn0file0L48-L77
+### 2. `sales.csv`
+| Column | Data Type | Description |
+| :--- | :--- | :--- |
+| `Date` | Date (YYYY-MM-DD) | Date of the sales transaction |
+| `Title` | String | The title of the book sold |
+| `Quantity Sold` | Integer | Number of units sold in the transaction |
+| `Total Revenue` | Float | Total revenue generated ($) |
 
 ---
 
-## 📸 Screenshots & Visual Gallery
+## 🚀 Getting Started
 
-### 🖥️ Terminal Output & Summary Report
-*Displays successful data loading, cleaning status, summary metrics, and computed statistics inside VS Code.*
-
-![Console_output](screenshots/Console_output.png.png)
-
----
-
-# 📈 Visualizations
-
-## 1. Borrowing Count by Book Category
-
-The bar chart compares the number of borrowing transactions across book categories.
-
-| Category | Borrowings |
-|---|---:|
-| Art | 208 |
-| Science | 207 |
-| Non-fiction | 206 |
-| History | 198 |
-| Fiction | 181 |
-
-![Borrowing Count by Book Category](Charts/top_books_chart.png)
-
-The source code creates this category-level bar chart using `book_category` value counts. fileciteturn0file0L88-L105
-
----
-
-## 2. Monthly Borrowing Trends
-
-This line graph shows how borrowing activity changes across the months.
-
-| Month | Borrowings |
-|---|---:|
-| Jan | 101 |
-| Feb | 65 |
-| Mar | 99 |
-| Apr | 74 |
-| May | 78 |
-| Jun | 86 |
-| Jul | 91 |
-| Aug | 80 |
-| Sep | 79 |
-| Oct | 82 |
-| Nov | 94 |
-| Dec | 71 |
-
-![Monthly Borrowing Trends](Charts/monthly_trends_chart.png)
-
-The dashboard groups transactions by numerical month and plots the monthly borrowing trend. fileciteturn0file0L108-L123
-
----
-
-## 3. Distribution of Books by Genre
-
-The pie chart represents the proportion of borrowing transactions belonging to each book category.
-
-![Distribution of Books by Genre](Charts/genre_distribution_chart.png)
-
-The program generates the genre distribution using `book_category.value_counts()` and displays the proportions as a pie chart. fileciteturn0file0L125-L132
-
----
-
-## 4. Borrowing Activity Heatmap
-
-The heatmap analyzes borrowing activity by **day of the week** and **book genre**.
-
-![Borrowing Activity Heatmap](Charts/activity_heatmap.png)
-
-The dashboard creates a pivot table using `DayOfWeek` as the index, `book_category` as the columns, and transaction counts as the values. fileciteturn0file0L134-L144
-
----
-
-# 🧮 Statistical Analysis
-
-The project uses NumPy to calculate:
-
-```text
-Average Borrowing Duration
-Standard Deviation of Borrowing Duration
-```
-
-The most frequently borrowed book is identified using Pandas `mode()`. fileciteturn0file0L61-L77
-
-### Results
-
-```text
-Most Borrowed Book ID       : B1
-Average Borrowing Duration  : 10.22 days
-Standard Deviation          : 5.75 days
-```
-
----
-
-# 🔎 Filtering Feature
-
-The dashboard includes a category filtering function.
-
-Example:
-
-```python
-dashboard.filter_transactions("non-fiction")
-```
-
-The function compares the requested category with `book_category` and returns matching transaction records. fileciteturn0file0L79-L86
-
----
-
-# ▶️ How to Run
-
-### 1. Install the required libraries
+### Prerequisites
+Make sure you have Python 3.8+ installed along with the required data science libraries:
 
 ```bash
 pip install pandas numpy matplotlib seaborn
 ```
 
-### 2. Keep both files in the same folder
+### Quick Start Code
 
-```text
-E-Library dashboard project.py
-library_transactions.csv
+Initialize the bookstore system and perform inventory and sales operations directly in Python or Jupyter Notebook:
+
+```python
+import pandas as pd
+import numpy as np
+from bookstore import Bookstore  # or run within the notebook context
+
+# Initialize bookstore system
+store = Bookstore()
+
+# Add a new book to inventory
+store.add_book("Dune", "Frank Herbert", "Sci-Fi", 16.50, 40)
+
+# Update existing stock quantity
+store.update_inventory("1984", 10)
+
+# Record a sale transaction
+store.record_sale("Dune", 5, "2026-07-01")
+
+# Generate summary report
+store.generate_report()
 ```
-
-### 3. Run the Python program
-
-```bash
-python "E-Library dashboard project.py"
-```
-
-The program loads the CSV, generates the summary and statistics, applies the example category filter, and creates the charts. fileciteturn0file0L147-L163
 
 ---
 
-# 📁 Generated Chart Files
+## 📈 Analytics & Metrics
 
-Running the visualization function produces:
-
-```text
-top_books_chart.png
-monthly_trends_chart.png
-genre_distribution_chart.png
-activity_heatmap.png
-```
-
-The source code saves each visualization as a PNG file at 300 DPI. fileciteturn0file0L95-L105 fileciteturn0file0L108-L123 fileciteturn0file0L125-L132 fileciteturn0file0L134-L144
+The system calculates advanced financial and inventory metrics:
+- **Total Revenue**: Accumulated sales revenue across all transactions.
+- **Average Book Price**: Mean price across all catalog titles.
+- **Monthly Revenue Growth Rate**: Month-over-month percentage change in revenue computed via NumPy arrays (`np.diff`).
 
 ---
 
+## 🛠️ Core Class Reference (`Bookstore`)
 
-# 💡 Key Insights
-
-Based on the supplied transaction data:
-
-1. **Art** has the highest number of borrowing transactions with **208**.
-2. **Fiction** has the lowest number with **181**.
-3. **January** has the highest monthly borrowing activity with **101** transactions.
-4. **February** has the lowest monthly activity with **65** transactions.
-5. The average borrowing duration is approximately **10.22 days**.
-6. The borrowing-duration standard deviation is approximately **5.75 days**.
+- `__init__(inventory_file, sales_file)`: Initializes datasets.
+- `add_book(title, author, genre, price, quantity)`: Inserts a new title with validation.
+- `update_inventory(title, quantity)`: Adjusts existing stock levels.
+- `record_sale(title, quantity, date)`: Deducts stock and logs transaction revenue.
+- `generate_report()`: Prints high-level summary statistics.
 
 ---
 
-## 👩‍💻 Author
-
-**E-Library Dashboard Project**
-
-Built as a beginner-friendly Python data analysis and visualization project.
+## 📄 License
+This project is open-source and available for educational and commercial use.
