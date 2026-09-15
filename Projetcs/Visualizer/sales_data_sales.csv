@@ -1,0 +1,21 @@
+SalesID,Product,Region,Sales,Profit,Year
+101,Product D,East,787,145,2022
+102,Product E,Central,715,43,2022
+103,Product C,South,413,93,2023
+104,Product E,North,641,132,2024
+105,Product E,North,745,102,2022
+106,Product B,West Coast,964,57,2023
+107,Product C,West Coast,739,129,2022
+108,Product C,East,491,83,2022
+109,Product C,South,766,73,2022
+110,Product E,South,854,113,2022
+111,Product D,West Coast,827,101,2024
+112,Product C,South,908,139,2022
+113,Product E,South,434,53,2022
+114,Product B,North,605,134,2022
+115,Product D,West Coast,480,87,2024
+116,Product B,Central,961,54,2022
+117,Product D,West Coast,787,111,2022
+118,Product E,Central,401,117,2024
+119,Product A,North,789,126,2024
+120,Product D,East,965,101,2024
